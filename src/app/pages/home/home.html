@@ -1,0 +1,11 @@
+@if (homeData()?.hero; as heroData) {
+  <section class="w-full h-220">
+    <div
+      class="w-full h-full bg-cover bg-center bg-no-repeat flex flex-col justify-start px-7 lg:px-30 relative gap-20 py-60 lg:py-40"
+      [style.backgroundImage]="'url(' + heroData.heroUrl + ')'"
+    >
+      <app-hero [movieData]="heroData"></app-hero>
+      <app-now-playing [moviesData]="homeData()?.nowPlaying ?? []"></app-now-playing>
+    </div>
+  </section>
+}
