@@ -1,14 +1,19 @@
 <div class="absolute inset-0 bg-black/60 z-0"></div>
 <div class="relative z-10 flex flex-col gap-4">
   <span hlmBadge variant="default">NOWOŚĆ W KINACH</span>
-
   <h1 class="uppercase font-bold text-white/90 text-4xl">{{ movieData().title }}</h1>
-  <p class="font-medium text-white/60 text-sm max-w-lg">{{ movieData().description }}</p>
-
+  <p class="font-medium text-white/60 text-sm max-w-xl">{{ movieData().description }}</p>
   <div class="flex gap-4">
     <button hlmBtn><svg class="w-5 h-5" lucideTicket></svg>Zarezerwuj bilet</button>
-    <button hlmBtn variant="outline">
-      <svg class="w-5 h-5" lucideCirclePlay></svg>Zobacz trailer
-    </button>
+    <a
+      hlmBtn
+      variant="outline"
+      [href]="movieData().trailerUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg class="w-5 h-5" lucideCirclePlay></svg>
+      Zobacz trailer
+    </a>
   </div>
 </div>

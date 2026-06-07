@@ -1,0 +1,19 @@
+<hlm-card class="relative w-full pt-0 h-full">
+  <div class="bg-primary absolute inset-0 z-30 aspect-video opacity-50 mix-blend-color"></div>
+  <img
+    [src]="movieData().bannerUrl"
+    alt="Event cover"
+    class="relative z-20 aspect-video w-full object-cover brightness-60 grayscale"
+  />
+  <hlm-card-header>
+    <div hlmCardAction>
+      <span hlmBadge variant="secondary" class="font-bold">{{
+        movieData().releaseDate | date: 'd MMMM'
+      }}</span>
+    </div>
+    <h3 hlmCardTitle class="text-lg font-medium">{{ movieData().title }}</h3>
+    <p hlmCardDescription class="text-base">
+      {{ movieData().description }}
+    </p>
+  </hlm-card-header>
+</hlm-card>

@@ -65,4 +65,28 @@ export class SupabaseService {
 
     return data;
   }
+
+  async getUpcoming() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+
+    const today = now.toISOString().split('T')[0];
+
+    const endOfYear = `${currentYear}-12-31`;
+
+    const { data, error } = await this.supabase
+      .from('movie')
+      .select('*')
+      .gt('releaseDate', today)
+      .lte('releaseDate', endOfYear)
+      .order('releaseDate', { ascending: true })
+      .limit(3);
+
+    if (error) {
+      console.error('Błąd pobierania Upcoming:', error);
+      return [];
+    }
+
+    return data;
+  }
 }
